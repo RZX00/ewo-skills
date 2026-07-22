@@ -27,13 +27,13 @@ Codex、Cursor、Cline，或任何能读 `SKILL.md` 的 agent 即可用。
 
 ### 图像生成与编辑 · `ewo-image-generate`
 
-**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …）：
+**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …），它会自己放到该放的地方：
 
 ```text
-帮我装一个 agent skill：把 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md 下载到 ~/.claude/skills/ewo-image-generate/SKILL.md（没有目录就创建），保持内容不变，然后加载它并告诉我装好了。
+帮我装一个 agent skill：获取 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md，原样保存成一个名为 ewo-image-generate 的技能（放到你自己的 skills 目录），然后加载它并告诉我装好了。
 ```
 
-**或一行命令装：**
+**或手动装** —— 把 `SKILL.md` 下载到你的 agent 的 skills 目录（下面以 Claude Code 的 `~/.claude/skills/` 为例，其他 agent 换成各自的目录）：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md --create-dirs -o ~/.claude/skills/ewo-image-generate/SKILL.md
@@ -41,13 +41,13 @@ curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-gen
 
 ### 文生视频 · `ewo-video-generate`
 
-**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …）：
+**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …），它会自己放到该放的地方：
 
 ```text
-帮我装一个 agent skill：把 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md 下载到 ~/.claude/skills/ewo-video-generate/SKILL.md（没有目录就创建），保持内容不变，然后加载它并告诉我装好了。
+帮我装一个 agent skill：获取 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md，原样保存成一个名为 ewo-video-generate 的技能（放到你自己的 skills 目录），然后加载它并告诉我装好了。
 ```
 
-**或一行命令装：**
+**或手动装** —— 把 `SKILL.md` 下载到你的 agent 的 skills 目录（下面以 Claude Code 的 `~/.claude/skills/` 为例，其他 agent 换成各自的目录）：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md --create-dirs -o ~/.claude/skills/ewo-video-generate/SKILL.md
