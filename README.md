@@ -1,90 +1,85 @@
 <div align="center">
-  <img src="./assets/ewo-logo.png" alt="ewo" width="220" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/ewo-logo-dark.svg" />
+    <img src="./assets/ewo-logo.png" alt="ewo" width="220" />
+  </picture>
 
   <h1>ewo skills</h1>
 
-  <p><strong>Open-source image &amp; video generation skills for your AI agent.</strong></p>
-  <p>Free to start · multi-model · pay-as-you-go · no subscription</p>
+  <p><strong>给你的 AI agent 用的开源「图像 / 视频生成」技能。</strong></p>
+  <p>免费起步 · 多模型 · 按量付费 · 无订阅</p>
 </div>
 
 ---
 
-Drop-in [agent skills](https://docs.claude.com/en/docs/agents/skills) for image and
-video generation, powered by [ewo](https://api.ewo.so)'s public,
-OpenAI-compatible media API. Install into Claude Code, Codex, Cursor, Cline, or any
-agent that reads `SKILL.md`.
+即插即用的 [agent skill](https://docs.claude.com/en/docs/agents/skills)，由
+[ewo](https://api.ewo.so) 的公开、OpenAI 兼容媒体 API 驱动。装进 Claude Code、
+Codex、Cursor、Cline，或任何能读 `SKILL.md` 的 agent 即可用。
 
-**Free to start** — a new ewo account comes with a trial credit, so your first few
-generations are on us. After that it's pay-as-you-go from a prepaid wallet.
+**免费起步** —— 新注册的 ewo 账号自带一笔试用额度，前几次生成不花钱；之后按量从预付钱包扣费，无订阅。
 
-| Skill | What it does | Models |
+| 技能 | 用途 | 默认模型 |
 |---|---|---|
-| [`ewo-image-generate`](./ewo-image-generate/) | Image Generate & Edit | `gpt-image-2` + 3 more |
-| [`ewo-video-generate`](./ewo-video-generate/) | Video Generate | `seedance-2-fast` + 2 more |
+| [`ewo-image-generate`](./ewo-image-generate/) | 图像生成与编辑 | `gpt-image-2` |
+| [`ewo-video-generate`](./ewo-video-generate/) | 文生视频 | `seedance-2-fast` |
 
-## Install
+## 安装
 
-### Image Generate & Edit — `ewo-image-generate`
+### 图像生成与编辑 · `ewo-image-generate`
 
-**One-click install** — paste this to your agent (Claude Code, Codex, Cursor, Cline, …):
-
-```text
-Install an agent skill for me. Create the folder `~/.claude/skills/ewo-image-generate/` (or your agent's skills directory), download https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md into it as `SKILL.md`, then load it and tell me it's ready. Do not change its contents.
-```
-
-Or install manually:
-
-```bash
-mkdir -p ~/.claude/skills/ewo-image-generate
-curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md \
-  -o ~/.claude/skills/ewo-image-generate/SKILL.md
-```
-
-### Video Generate — `ewo-video-generate`
-
-**One-click install** — paste this to your agent (Claude Code, Codex, Cursor, Cline, …):
+**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …）：
 
 ```text
-Install an agent skill for me. Create the folder `~/.claude/skills/ewo-video-generate/` (or your agent's skills directory), download https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md into it as `SKILL.md`, then load it and tell me it's ready. Do not change its contents.
+帮我装一个 agent skill：把 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md 下载到 ~/.claude/skills/ewo-image-generate/SKILL.md（没有目录就创建），保持内容不变，然后加载它并告诉我装好了。
 ```
 
-Or install manually:
+**或一行命令装：**
 
 ```bash
-mkdir -p ~/.claude/skills/ewo-video-generate
-curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md \
-  -o ~/.claude/skills/ewo-video-generate/SKILL.md
+curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-image-generate/SKILL.md --create-dirs -o ~/.claude/skills/ewo-image-generate/SKILL.md
 ```
 
-## Set up your ewo key (once)
+### 文生视频 · `ewo-video-generate`
 
-The skill needs a `sk-ewo-` key. Your agent will walk you through this the first
-time, or do it now:
+**一键安装** —— 把下面这段发给你的 agent（Claude Code / Codex / Cursor / Cline …）：
 
-1. **Sign up** at https://api.ewo.so/sign-up — new accounts get a free trial credit.
-2. **Create a key** at https://api.ewo.so/keys (it starts with `sk-ewo-`).
-3. **Save it** — either:
-   - `export EWO_API_KEY=sk-ewo-...` in your shell, or
-   - put `api_key=sk-ewo-...` in `~/.ewo/credentials`.
+```text
+帮我装一个 agent skill：把 https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md 下载到 ~/.claude/skills/ewo-video-generate/SKILL.md（没有目录就创建），保持内容不变，然后加载它并告诉我装好了。
+```
 
-Out of credit? Recharge at https://api.ewo.so/console/topup.
+**或一行命令装：**
 
-## Try it
+```bash
+curl -fsSL https://raw.githubusercontent.com/RZX00/ewo-skills/main/ewo-video-generate/SKILL.md --create-dirs -o ~/.claude/skills/ewo-video-generate/SKILL.md
+```
 
-Once your key is set, just ask your agent:
+## 配置你的 ewo Key（只需一次）
 
-> 画一只水彩风格的橘猫 · draw a watercolor orange cat
+技能需要一个 `sk-ewo-` 开头的 key。第一次用时 agent 会引导你，也可以现在就配好：
+
+1. **注册**：https://api.ewo.so/sign-up —— 新账号自带免费试用额度。
+2. **建 key**：https://api.ewo.so/keys （`sk-ewo-` 开头）。
+3. **保存**：二选一
+   - shell 里 `export EWO_API_KEY=sk-ewo-...`，或
+   - 写进 `~/.ewo/credentials`：`api_key=sk-ewo-...`。
+
+额度用完了？在 https://api.ewo.so/console/topup 充值。
+
+## 试一下
+
+Key 配好后，直接对你的 agent 说：
+
+> 画一只水彩风格的橘猫
 >
-> 生成一段霓虹东京雨夜的短视频 · make a short neon-Tokyo-rain video
+> 生成一段霓虹东京雨夜的短视频
 
-## How it works
+## 工作原理
 
-Each skill is a self-contained `SKILL.md` that calls ewo's public
-OpenAI-compatible endpoints (`POST https://api.ewo.so/v1/images/generations`,
-`POST https://api.ewo.so/v1/videos/generations`) with your key. You pay only
-for what you generate, billed to your prepaid ewo wallet.
+每个技能都是一个自包含的 `SKILL.md`，用你的 key 调 ewo 的公开 OpenAI 兼容端点
+（`POST https://api.ewo.so/v1/images/generations`、
+`POST https://api.ewo.so/v1/videos/generations`）。只为你生成的内容付费，从预付
+ewo 钱包扣。
 
 ---
 
-<sub>Generated from the ewo capability manifests — do not edit `SKILL.md` by hand.
-Maintainers regenerate with `pnpm gen:oss-skills`.</sub>
+<sub>本目录由 ewo 能力清单自动生成，请勿手改 `SKILL.md`；维护者用 `pnpm gen:oss-skills` 重新生成。</sub>
