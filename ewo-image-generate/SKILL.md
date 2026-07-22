@@ -11,7 +11,7 @@ start** — a new ewo account comes with a small trial credit, enough to try it 
 before you ever recharge.
 
 - Endpoint: `POST https://api.ewo.so/v1/images/generations`
-- Default `model`: `gpt-image-2` (also: nano-banana, doubao-seedream-4.5, doubao-seedream-5.0-lite). Pick a model by setting the `model` field.
+- Default `model`: `gpt-image-2`. Pick a model by setting the `model` field.
 
 ## Step 1 — resolve ORIGIN and KEY (first hit wins)
 
@@ -52,7 +52,7 @@ curl -sS --max-time 180 "$ORIGIN/v1/images/generations" \
 ### Fields
 
 - `prompt` (string, required) — The image prompt. When editing (image_url provided), describe the desired edit.
-- `model` (string, optional) (one of: gpt-image-2, nano-banana, doubao-seedream-4.5, doubao-seedream-5.0-lite) — Optional image model. Defaults to gpt-image-2. Alternatives: nano-banana (Nano Banana / Gemini image), doubao-seedream-4.5 or doubao-seedream-5.0-lite (Doubao Seedream).
+- `model` (string, optional) (one of: gpt-image-2) — Optional image model. Defaults to `gpt-image-2`.
 - `image_url` (string, optional) — Optional. URL or data URL of a source image to edit; when provided the invocation runs in edit mode against an edit-capable model.
 - `mask_url` (string, optional) — Optional mask URL or data URL. Only valid together with image_url.
 - `size` (string, optional) (one of: 1024x1024, 1024x1536, 1536x1024, auto)
@@ -79,8 +79,7 @@ Finish by telling the user the saved file path.
 ### Editing an existing image
 
 To edit instead of generate, POST the same body plus `image` (a `data:` URL of
-the source picture) to `$ORIGIN/v1/images/edits`. Edit support is model-dependent;
-`gpt-image-2` and `nano-banana` handle it.
+the source picture) to `$ORIGIN/v1/images/edits`. `gpt-image-2` supports editing.
 
 ## Failures (JSON `{ error: { code, message } }`) — do NOT blind-retry 4xx
 
