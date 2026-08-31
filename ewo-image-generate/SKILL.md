@@ -55,7 +55,8 @@ curl -sS --max-time 180 "$ORIGIN/v1/images/generations" \
 - `model` (string, optional) (one of: gpt-image-2) — Optional image model. Defaults to `gpt-image-2`.
 - `image_url` (string, optional) — Optional. URL or data URL of a source image to edit; when provided the invocation runs in edit mode against an edit-capable model.
 - `mask_url` (string, optional) — Optional mask URL or data URL. Only valid together with image_url.
-- `size` (string, optional) (one of: 1024x1024, 1024x1536, 1536x1024, auto)
+- `size` (string, optional) (one of: 1024x1024, 1024x1536, 1536x1024, auto) — Output pixel size (WIDTHxHEIGHT). Portrait 2:3 is 1024x1536; landscape 3:2 is 1536x1024. Do not send aspect ratios like 1:1 or 2:3 — the live gpt-image lane rejects them.
+- `resolution` (string, optional) (one of: 1K, 2K, 4K) — Optional output resolution tier. Defaults to 1K. Square output is roughly 1024px, 2048px and 2880px. gpt-image-2 is one flat per-image price; 2K/4K do not cost more. The live Images lane may ignore this field and still render at the default size.
 - `quality` (string, optional) (one of: standard, medium, high, auto) — Requested quality tier (OpenAI-image models only). Non-OpenAI image models (Nano Banana, Doubao Seedream) ignore this and render at their native quality; it is dropped before upstream so it never causes a 4xx.
 - `background` (string, optional) (one of: opaque, transparent, auto)
 - `output_format` (string, optional) (one of: png, jpeg, webp)
